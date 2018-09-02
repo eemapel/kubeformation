@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: 2010-09-09
 
 # Controller VM
 Resources:
-  Ec2Instance:
+  Ec2ControllerVM:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: t2.micro
@@ -10,3 +10,26 @@ Resources:
       Tags:
         - Key: Name
           Value: Controller
+      SecurityGroups:
+        - !Ref SecurityGroup
+
+  Ec2K8sNodeVM:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.small
+      ImageId: ami-0552e3455b9bc8d50
+      Tags:
+        - Key: Name
+          Value: Node
+      SecurityGroups:
+        - !Ref SecurityGroup
+
+  SecurityGroup:
+    Type:  AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Enable SSH access via port 22
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: 0.0.0.0/0
