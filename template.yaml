@@ -1,0 +1,9 @@
+Resources:
+  Ec2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      ImageId: ami-0552e3455b9bc8d50
+      Tags:
+        - Key: Name
+          Value: Controller
