@@ -1,3 +1,5 @@
+AWSTemplateFormatVersion: 2010-09-09
+
 # Controller VM
 Resources:
   Ec2Instance:
@@ -8,14 +10,3 @@ Resources:
       Tags:
         - Key: Name
           Value: Controller
-
-# Node VMs
-Resources:
-  Ec2Instance:
-    Type: AWS::EC2::Instance
-    Properties:
-      InstanceType: t2.small
-      ImageId: ami-0552e3455b9bc8d50
-      Tags:
-        - Key: Name
-          Value: Node
