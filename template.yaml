@@ -1,5 +1,5 @@
+# Controller VM
 Resources:
-  # Controller VM
   Ec2Instance:
     Type: AWS::EC2::Instance
     Properties:
@@ -8,7 +8,9 @@ Resources:
       Tags:
         - Key: Name
           Value: Controller
-  # Node VMs
+
+# Node VMs
+Resources:
   Ec2Instance:
     Type: AWS::EC2::Instance
     Properties:
