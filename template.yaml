@@ -1,4 +1,5 @@
 Resources:
+  # Controller VM
   Ec2Instance:
     Type: AWS::EC2::Instance
     Properties:
@@ -7,3 +8,12 @@ Resources:
       Tags:
         - Key: Name
           Value: Controller
+  # Node VMs
+  Ec2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.small
+      ImageId: ami-0552e3455b9bc8d50
+      Tags:
+        - Key: Name
+          Value: Node
