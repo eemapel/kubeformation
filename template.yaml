@@ -19,6 +19,10 @@ Resources:
             #!/bin/bash -ex
             apt-get -y update
             apt-get -y upgrade
+            apt-get install -y python-netaddr python-pip
+            pip install --upgrade pip==9.0.3
+            pip install ansible jinja2
+            sysctl -w net.ipv4.ip_forward=1
             touch /root/finish
 
   Ec2K8sNodeVM:
