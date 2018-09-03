@@ -19,6 +19,7 @@ Resources:
             #!/bin/bash -ex
             apt-get -y update
             apt-get -y upgrade
+            touch /root/finish
 
   Ec2K8sNodeVM:
     Type: AWS::EC2::Instance
