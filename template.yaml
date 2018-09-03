@@ -7,11 +7,18 @@ Resources:
     Properties:
       InstanceType: t2.micro
       ImageId: ami-0552e3455b9bc8d50
+      KeyName: MyOhioKeyPair
       Tags:
         - Key: Name
           Value: Controller
       SecurityGroups:
         - !Ref SecurityGroup
+      UserData:
+        Fn::Base64:
+          !Sub |
+            #!/bin/bash -ex
+            apt-get -y update
+            apt-get -y upgrade
 
   Ec2K8sNodeVM:
     Type: AWS::EC2::Instance
